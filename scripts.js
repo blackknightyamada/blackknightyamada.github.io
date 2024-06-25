@@ -2,17 +2,29 @@ $('#monthSubmit').on('click', function() {
     var month = parseInt($('#inputMonth').val()); // 月
 
     if (isNaN(month)) { // 数値に変換できたか確認
-        myAlert("数字を入力してください");
+        danger("数字を入力してください");
         return;
     }
 
     if (month < 1 || month > 12) { // 範囲内の数値か確認
-        myAlert("1～12の数字を入力してください")
+        danger("1～12の数字を入力してください")
         return;
     }
-    myAlert("読み込み中...");
-    setLocation(month);
+    info("読み込み中...");
+    setLocation(month); // ページを移動
 });
+
+function danger(message) {
+    $('#alertMsg').removeClass('alert-info');
+    $('#alertMsg').addClass('alert-danger');
+    myAlert(message);
+}
+
+function info(message) {
+    $('#alertMsg').addClass('alert-info');
+    $('#alertMsg').removeClass('alert-danger');
+    myAlert(message);
+}
 
 function myAlert(message) {
     $('#alertMsg').text(message);
@@ -21,26 +33,26 @@ function myAlert(message) {
 }
 
 function setLocation(month) {
-    if (month < 1 || month > 12) {
-        return;
+    if (month < 1 || month > 12) { // 範囲外チェック
+        return; // 返す
     }
-    switch (month) {
-        case 3:
-        case 4:
-        case 5:
+    switch (month) { // 月によって処理を切り替え
+        case 3: //
+        case 4: // 春の場合
+        case 5: //
             window.location.href = "/spring/";
             break;
-        case 6:
-        case 7:
-        case 8:
+        case 6: //
+        case 7: // 夏の場合
+        case 8: //
             window.location.href = "/summer/";
             break;
-        case 9:
-        case 10:
-        case 11:
+        case 9: //
+        case 10:// 秋の場合
+        case 11://
             window.location.href = "/autum/";
             break;
-        default:
+        default:// その他(冬の場合)
             window.location.href = "/winter/";
             break;
     }

@@ -9,7 +9,8 @@ $('#monthSubmit').on('click', function() {
     if (month < 1 || month > 12) { // 範囲内の数値か確認
         myAlert("1～12の数字を入力してください")
         return;
-    }  
+    }
+    myAlert("読み込み中...");
     setLocation(month);
 });
 

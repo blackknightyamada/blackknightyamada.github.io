@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="styles.css", rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   
-    <title>UIUX</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+  <link href="styles.css" , rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <title>UIUX</title>
 </head>
+
 <body>
-    <div class="container my-5">
+  <div class="container-fuild">
+    <div class="row flex-nowrap" style="max-width: 100vh;">
+      <div class="bg-dark-subtle col-auto col min-vh-100 zen-maru">
+        <div class="bg-dark-subtle p-2">
+          <a class="d-flex text-decoration-none mt-3 mx-2 align-items-center text-white">
+            <span class="fs-2 d-none d-sm-inline">季節</span>
+          </a>
+          <ul class="nav nav-pills mt-1 ms-2 flex-column">
+            <li class="nav-item my-1">
+              <a href="#" class="nav-link text-white selected" aria-current="page" id="textInputButton">
+                <i class="bi bi-card-text"></i>
+                <span class="fs-5 ms-1 d-sm-inline">入力式</span>
+              </a>
+            </li>
+            <li class="nav-item my-1">
+              <a href="#" class="nav-link text-white" id="listInputButton">
+                <i class="bi bi-list-ul"></i>
+                <span class="fs-5 ms-1 d-none d-sm-inline">選択式</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container-fluid conntents mx-3 my-5">
         <div id="alertMsg" class="alert alert-danger invisible" role="alert">
-            A simple danger alert—check it out!
-          </div>
-        <h1 class="fs-1 text-white">月を入力してください</h1>
-        <form>
+          エラーメッセージはありません
+        </div>
+        <div class="" id="textInput">
+          <h1 class="fs-1 text-white">月を入力してください</h1>
+          <form>
             <div class="mb-3">
               <label for="inputMonth" class="form-label">月</label>
               <input type="text" class="form-control" id="inputMonth" aria-describedby="monthHelp">
@@ -24,8 +56,37 @@
             </div>
             <a href="#" id="monthSubmit" class="btn btn btn-primary btn-lg">実行</a>
           </form>
+        </div>
+        <div class="invisible" id="listInput">
+          <h1 class="fs-1 text-white">月を選択してください</h1>
+          <form>
+            <div class="mb-3">
+              <select name="month" class="fs-3 text-white" id="monthSelect">
+                <option value="1">1月</option>
+                <option value="2">2月</option>
+                <option value="3">3月</option>
+                <option value="4">4月</option>
+                <option value="5">5月</option>
+                <option value="6">6月</option>
+                <option value="7">7月</option>
+                <option value="8">8月</option>
+                <option value="9">9月</option>
+                <option value="10">10月</option>
+                <option value="11">11月</option>
+                <option value="12">12月</option>
+              </select>
+            </div>
+            <a href="#" id="s_monthSubmit" class="btn btn btn-primary btn-lg">実行</a>
+          </form>
+        </div>
+      </div>
     </div>
-    <script src="./scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </div>
+
+  <script src="./scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

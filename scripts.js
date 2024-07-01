@@ -14,6 +14,22 @@ $('#monthSubmit').on('click', function() {
     setLocation(month); // ページを移動
 });
 
+$('#s_monthSubmit').on('click', function () {
+    var month = parseInt($('#monthSelect').val());
+
+    if (isNaN(month)) { // 数値に変換できたか確認
+        danger("数字を入力してください");
+        return;
+    }
+
+    if (month < 1 || month > 12) { // 範囲内の数値か確認
+        danger("1～12の数字を入力してください")
+        return;
+    }
+    info("読み込み中...");
+    setLocation(month); // ページを移動
+});
+
 function danger(message) {
     $('#alertMsg').removeClass('alert-info');
     $('#alertMsg').addClass('alert-danger');
@@ -57,3 +73,33 @@ function setLocation(month) {
             break;
     }
 }
+
+// container
+var currentContainer = "textInput";
+var containers = [ "textInput", "listInput" ];
+
+// setvisible container
+function setVisible(targetContainer) {
+    if (!containers.includes(targetContainer)) {
+        return
+    }
+    containers.forEach((container) => {
+        if (container == targetContainer) {
+            $("#" + container + "Button").addClass("selected");
+            $("#" + container).addClass("visible");
+            $("#" + container).removeClass("invisible");
+            return;
+        }
+        $("#" + container).addClass("invisible");
+        $("#" + container).removeClass("visible");
+        $("#" + container + "Button").removeClass("selected");
+    });
+    currentContainer = targetContainer;
+}
+
+// register containers
+containers.forEach((container) => {
+    $("#" + container + "Button").on("click", function() {
+        setVisible(container);
+    });
+});

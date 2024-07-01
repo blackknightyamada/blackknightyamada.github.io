@@ -41,3 +41,8 @@ html {
     height: 0;
     width: 0;
 }
+
+.text-season {
+    color: white;
+    text-decoration: underline;
+}

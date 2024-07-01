@@ -10,7 +10,7 @@ $('#monthSubmit').on('click', function() {
         danger("1～12の数字を入力してください")
         return;
     }
-    info("読み込み中...");
+    removeAlert();
     setLocation(month); // ページを移動
 });
 
@@ -26,7 +26,8 @@ $('#s_monthSubmit').on('click', function () {
         danger("1～12の数字を入力してください")
         return;
     }
-    info("読み込み中...");
+    //info("読み込み中...");
+    removeAlert();
     setLocation(month); // ページを移動
 });
 
@@ -48,6 +49,15 @@ function myAlert(message) {
     $('#alertMsg').addClass("visible");
 }
 
+function removeAlert() {
+    $('#alertMsg').addClass('invisible');
+    $('#alertMsg').removeClass("visible");
+}
+
+function setSeasonText(text) {
+    $('#resultText').html(text);
+}
+
 function setLocation(month) {
     if (month < 1 || month > 12) { // 範囲外チェック
         return; // 返す
@@ -56,27 +66,32 @@ function setLocation(month) {
         case 3: //
         case 4: // 春の場合
         case 5: //
-            window.location.href = "/spring/";
+            setSeasonText(`季節は<span class="text-season">春</span>です`)
+            //window.location.href = "/spring/";
             break;
         case 6: //
         case 7: // 夏の場合
         case 8: //
-            window.location.href = "/summer/";
+            setSeasonText(`季節は<span class="text-season">夏</span>です`)
+            //window.location.href = "/summer/";
             break;
         case 9: //
         case 10:// 秋の場合
         case 11://
-            window.location.href = "/autum/";
+            setSeasonText(`季節は<span class="text-season">秋</span>です`)
+            //window.location.href = "/autum/";
             break;
         default:// その他(冬の場合)
-            window.location.href = "/winter/";
+            setSeasonText(`季節は<span class="text-season">冬</span>です`)
+            //window.location.href = "/winter/";
             break;
     }
+    setVisible("result")
 }
 
 // container
 var currentContainer = "textInput";
-var containers = [ "textInput", "listInput" ];
+var containers = [ "textInput", "listInput", "result" ];
 
 // setvisible container
 function setVisible(targetContainer) {

@@ -100,14 +100,14 @@ function setVisible(targetContainer) {
     }
     containers.forEach((container) => {
         if (container == targetContainer) {
-            $("#" + container + "Button").addClass("selected");
+            $("#" + container + "Button").addClass("selected").addClass("text-black");
             $("#" + container).addClass("visible");
             $("#" + container).removeClass("invisible");
             return;
         }
         $("#" + container).addClass("invisible");
         $("#" + container).removeClass("visible");
-        $("#" + container + "Button").removeClass("selected");
+        $("#" + container + "Button").removeClass("selected").removeClass("text-black");
     });
     currentContainer = targetContainer;
 }
